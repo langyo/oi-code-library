@@ -6,4 +6,4 @@
 
 该代码仓库使用 WTFPL 协议开源，即“你他妈想干嘛就干嘛开源协议”。
 
-![开源协议具体内容](http://www.wtfpl.net/about/)
+[开源协议具体内容](http://www.wtfpl.net/about/)
