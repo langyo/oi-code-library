@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "iosfwd": "cpp",
+        "__config": "cpp",
+        "queue": "cpp",
+        "string": "cpp",
+        "vector": "cpp",
+        "stdexcept": "cpp",
+        "cstdio": "cpp"
+    }
+}
