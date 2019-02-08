@@ -44,11 +44,11 @@ int main(){
             }else if(i == 'R'){
                 where *= 2;
                 where += 1;
-            }else throw invalid_argument("给出无效路径！");
+            }else throw invalid_argument("Unknown Path!");
         }
 
         // 判断节点是否已有数字；此错误由本程序主动自行捕捉
-        if(list[where] != -1) throw runtime_error("重复的节点！");
+        if(list[where] != -1) throw runtime_error("Duplicate Nodes!");
 
         // 将传入的数字写入对应节点下
         list[where] = num;
@@ -83,7 +83,7 @@ int main(){
 
     while(cin >> inputing, inputing != "()"){
         smatch match;
-        if(!regex_match(inputing, match, reg)) throw invalid_argument("正则解析失败！");
+        if(!regex_match(inputing, match, reg)) throw invalid_argument("Parse falled!");
 
         int num = stoi(match[1].str());
         string LRs = match[2].str();
