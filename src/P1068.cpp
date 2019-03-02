@@ -22,11 +22,6 @@
 
 using namespace std;
 
-/**
- * @todo 该程序仍然有问题，只 AC 了一处
- *       出现问题的原因在于无法正确对编号进行二次排序，只有成绩的一次排序是对的
-*/
-
 int main(){
     int n, m;
     cin >> n >> m;
@@ -40,26 +35,11 @@ int main(){
     
     m = static_cast<int>(static_cast<double>(m) * 1.5F);
     
-    auto sort_by_score = [](const pair<int, int> &lhs, const pair<int, int> &rhs) -> bool {
-        if(lhs.second < rhs.second) return true;
-        return false;
-    };
-    sort(list.rbegin(), list.rend(), sort_by_score);
-    
-    auto sort_by_id = [](const pair<int, int> &lhs, const pair<int, int> &rhs) -> bool {
-        if(lhs.first < rhs.first) return true;
-        return false;
-    };
-    for(auto end = list.rbegin(), beg = end; end != list.rend(); ++end){
-        if(beg == end) continue;
-        if(beg -> second == end -> second) continue;
-        else{
-            sort(beg, end, sort_by_id);
-            beg = end;
-            ++beg;
-        }
-    }
-    
+    sort(list.begin(), list.end(), [](const pair<int, int> &lhs, const pair<int, int> &rhs) -> bool {
+        if(lhs.second == rhs.second) return lhs.first < rhs.first;
+        return lhs.second > rhs.second;
+    });
+
     int score_line = list.at(m - 1).second;
     for(; list.at(m).second == score_line; ++m);
     cout << score_line << " " << m << endl;
