@@ -11,3 +11,4 @@
 ## 该仓库下的测试平台链接：
 - [luogu](https://www.luogu.org/)
 - [UVa](https://uva.onlinejudge.org/)
+- [OpenJudgeCN](http://openjudge.cn/)
