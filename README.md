@@ -9,6 +9,14 @@
 [开源协议具体内容](http://www.wtfpl.net/about/)
 
 ## 该仓库下的测试平台链接：
+
+### 独立平台
+
 - [luogu](https://www.luogu.org/)
+
+### 被 Virtual Judge 支持的平台
+
+> [VJudge](https://cn.vjudge.net/)
+
 - [UVa](https://uva.onlinejudge.org/)
-- [OpenJudgeCN](http://openjudge.cn/)
+- [OpenJudge](http://openjudge.cn/)
