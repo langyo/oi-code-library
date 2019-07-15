@@ -28,11 +28,15 @@
 
 #ifdef DEBUG
 #include <iostream>
-#define __ std::cout << "[" << __LINE__ << "] <" << __func__ << "> has been executed." << std::endl;
-#define _(n) std::cout << "[" << __LINE__ << "] <" << __func__ << "> : " << #n << " = " << n << std::endl;
+#define __ std::cout << "[" << __LINE__ << "] <" << __func__ << "> has been executed." << std::endl
+#define __(str) std::cout << "[" << __LINE__ << "] <" << __func__ << "> : " << str << std::endl
+#define _(n) std::cout << "[" << __LINE__ << "] <" << __func__ << "> : " << #n << " = " << (n) << std::endl
+#define _(boolean,result) (!(boolean)) && std::cout << "[" << __LINE__ << "] <" << __func__ << "> : " << #boolean << " has been failed, because " << result << std::endl
 #endif
 
 #ifndef DEBUG
-#define __ ;
-#define _(n) ;
+#define __ ((void)0)
+#define __(str) ((void)0)
+#define _(n) ((void)0)
+#define _(boolean,result) ((void)0)
 #endif
