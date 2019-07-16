@@ -15,48 +15,27 @@
 */
 
 #include <iostream>
-
-#define DEBUG
-
-#ifdef DEBUG
-#include <iostream>
-#define __ std::cout << "[" << __LINE__ << "] <" << __func__ << "> has been executed." << std::endl
-#define _print(str) std::cout << "[" << __LINE__ << "] <" << __func__ << "> : " << str << std::endl
-#define _(n) std::cout << "[" << __LINE__ << "] <" << __func__ << "> : " << #n << " = " << (n) << std::endl
-#endif
-
-#ifndef DEBUG
-#define __ ((void)0)
-#define _print(str) ((void)0)
-#define _(n) ((void)0)
-#endif
+#include <vector>
 
 using namespace std;
-
-int dfs(int num) {
-    num /= 2;
-
-    _(num);
-
-    __;
-
-    _print("test");
-
-    // 边界为碰到 1
-    if(num == 1) return 1;
-    else {
-        int sum = 0;
-        for(int i = 1; i < num; ++i) sum += dfs(i);
-        return sum;
-    }
-}
 
 int main() {
     int n;
     cin >> n;
 
-    int out = dfs(n);
-    cout << out;
+    vector<int> list(n + 1, 0);
+
+    // 递推每一个数
+    for(int i = 1; i <= n; ++i) {
+        // 归纳之前的所有结果
+        for(int j = 1; j <= i / 2; ++j) {
+            list[i] += list[j];
+        }
+        // 它自身不进行拆数，也是一种情况
+        list[i] += 1;
+    }
+
+    cout << list[n];
 
     return 0;
 }
