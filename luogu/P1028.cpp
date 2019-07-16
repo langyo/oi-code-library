@@ -20,8 +20,15 @@
 
 #ifdef DEBUG
 #include <iostream>
-#define __ std::cout << "[" << __LINE__ << "] <" << __func__ << "> has been executed." << std::endl;
-#define _(n) std::cout << "[" << __LINE__ << "] <" << __func__ << "> : " << #n << " = " << n << std::endl;
+#define __ std::cout << "[" << __LINE__ << "] <" << __func__ << "> has been executed." << std::endl
+#define _print(str) std::cout << "[" << __LINE__ << "] <" << __func__ << "> : " << str << std::endl
+#define _(n) std::cout << "[" << __LINE__ << "] <" << __func__ << "> : " << #n << " = " << (n) << std::endl
+#endif
+
+#ifndef DEBUG
+#define __ ((void)0)
+#define _print(str) ((void)0)
+#define _(n) ((void)0)
 #endif
 
 using namespace std;
@@ -29,7 +36,11 @@ using namespace std;
 int dfs(int num) {
     num /= 2;
 
-    _(num)
+    _(num);
+
+    __;
+
+    _print("test");
 
     // 边界为碰到 1
     if(num == 1) return 1;
