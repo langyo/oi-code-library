@@ -14,8 +14,6 @@
   0. You just DO WHAT THE FUCK YOU WANT TO.
 */
 
-// 尚未完成
-
 #include <iostream>
 #include <vector>
 #include <functional>
