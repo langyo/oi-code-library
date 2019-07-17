@@ -18,6 +18,9 @@
 #include <vector>
 #include <functional>
 
+#define DEBUG
+#include "../big_baby.h"
+
 using namespace std;
 
 int main(){
@@ -31,29 +34,32 @@ int main(){
 		cout << 0 << flush;
 		return 0;
 	}
-	n -= 4;
+	n -= 4; // 去掉加号与乘号
 	
 	vector<int> numStack;
 	int count = 0, sum = 0;
 	function<void(int)> dfs = [&](int num){
+		_(numStack.size());
 		assert(numStack.size() <= 3);
-		if(numStack.size() == 3) return;
-		count += numCount[num];
-		if(count > n || count == n && numStack.size() < 2){
-			count -= numCount[num];
-			return;
-		}
 		numStack.push_back(num);
-		if(count == n && numStack.size() == 3){
-			// 满足条件！
-			
-			// for(auto &i : numStack) cout << i << " ";
-			// cout << endl;
-			
-			++sum;
-			count -= numCount[num];
+		count += numStack.back();
+		if(count > n || (count == n && numStack.size() < 3)){
+			count -= numStack.back();
 			numStack.pop_back();
 			return;
+		}
+		
+		if(count == n && numStack.size() == 3){
+			_print("Success!");
+			_(numStack[0]); _(numStack[1]); _(numStack[2]);
+			++sum;
+			count -= numStack[num];
+			numStack.pop_back();
+			return;
+		}
+		else if(numStack.size() == 3) {
+		    	_print("Failed.");
+		    	_(numStack[0]); _(numStack[1]); _(numStack[2]);
 		}
 		// 接下来就是 count < n 且 numStack.size() < 3 时做的事了
 		for(int i = 0; i < 10; ++i) dfs(i); 
