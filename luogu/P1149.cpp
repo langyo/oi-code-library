@@ -10,13 +10,15 @@
   0. You just DO WHAT THE FUCK YOU WANT TO.
 */
 
-// 未完成版本！
+// 该版本只能部分 AC
 
 #include <cassert>
 #include <iostream>
 #include <array>
 #include <vector>
-#include <functional>
+#include <utility>
+#include <sstream>
+#include <stdexcept>
 
 #define DEBUG
 #include "../big_baby.h"
@@ -36,37 +38,36 @@ int main(){
 	}
 	n -= 4; // 去掉加号与乘号
 	
-	vector<int> numStack;
-	int count = 0, sum = 0;
-	function<void(int)> dfs = [&](int num){
-		_(numStack.size());
-		assert(numStack.size() <= 3);
-		numStack.push_back(num);
-		count += numStack.back();
-		if(count > n || (count == n && numStack.size() < 3)){
-			count -= numStack.back();
-			numStack.pop_back();
-			return;
+	// 生成所有有效的候选等式（这部分其实可以打表）
+	typedef pair<pair<int, int>, int> expr_type;
+	vector<expr_type> match_list;
+	for(int left = 0; left < 10; ++left) {
+		for(int right = 0; right < 10; ++right) {
+			if(left + right < 10) {
+				match_list.push_back(make_pair(make_pair(left, right), left + right));
+			}
 		}
-		
-		if(count == n && numStack.size() == 3){
-			_print("Success!");
-			_(numStack[0]); _(numStack[1]); _(numStack[2]);
-			++sum;
-			count -= numStack[num];
-			numStack.pop_back();
-			return;
-		}
-		else if(numStack.size() == 3) {
-		    	_print("Failed.");
-		    	_(numStack[0]); _(numStack[1]); _(numStack[2]);
-		}
-		// 接下来就是 count < n 且 numStack.size() < 3 时做的事了
-		for(int i = 0; i < 10; ++i) dfs(i); 
-	};
-	// 最外层调用
-	for(int i = 0; i < 10; ++i) dfs(i);
-	
-	cout << sum << flush;
+	}
+
+	// 计算候选等式需要的火柴棍个数（不包含加号与等号的 4 根）
+	typedef pair<expr_type, int> state_type;
+	vector<state_type> state_list;
+	for(auto &i : match_list) {
+		int sum = numCount[i.first.first] + numCount[i.first.second] + numCount[i.second];
+		state_list.push_back(make_pair(i, sum));
+	}
+	#ifdef DEBUG
+	for(auto &n : state_list) {
+		cout << n.first.first.first << " + " << n.first.first.second << " = " << n.first.second << " {" << n.second << " + 4 = " << n.second + 4 <<"}" << endl;
+	}
+	#endif
+
+	// 过滤，统计
+	int count = 0;
+	for(auto &i : state_list) if(i.second == n) count += 1;
+
+	// 输出结果
+	cout << count << endl;
+
 	return 0; 
 }

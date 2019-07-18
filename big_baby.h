@@ -28,13 +28,29 @@
 
 #ifdef DEBUG
 #include <iostream>
+#include <string>
+
+template<typename T, typename Str, typename Lambda>
+void _for_print_func(T container, Str name, Lambda lamb = ([](std::string str) -> auto { return str; })) {
+  std::cout << "[" << __LINE__ << "] <" << __func__ << "> : " << name << " = [";
+  if(container.cbegin() == container.cend()) std::cout << "]" << std::endl;
+  else if(container.cbegin() + 1 == container.cend()) std::cout << lamb(*(container.cbegin())) << "]" << std::endl;
+  else {
+    std::cout << lamb(*(container.cbegin()));
+    for(auto i = container.cbegin() + 1; i != container.cend(); ++i) std::cout << ", " << lamb(*i);
+    std::cout << "]" << std::endl;
+  }
+}
+
 #define __ std::cout << "[" << __LINE__ << "] <" << __func__ << "> has been executed." << std::endl
 #define _print(str) std::cout << "[" << __LINE__ << "] <" << __func__ << "> : " << str << std::endl
+#define _for_print(container, lamb) _for_print_func(container, #container, (lamb))
 #define _(n) std::cout << "[" << __LINE__ << "] <" << __func__ << "> : " << #n << " = " << (n) << std::endl
 #endif
 
 #ifndef DEBUG
 #define __ ((void)0)
 #define _print(str) ((void)0)
+#define _for_print(container, lamb) ((void)0)
 #define _(n) ((void)0)
 #endif
