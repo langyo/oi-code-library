@@ -39,7 +39,6 @@ int main()
     _(document);
 
     vector<int> positions;
-    int count = 0;
 
     __;
     for(string::size_type  p = document.find(word, 0), last_p = 0u; p != string::npos; _(p), last_p = p + word.size(), p = document.find(word, last_p)) {
