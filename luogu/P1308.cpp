@@ -14,8 +14,6 @@
   0. You just DO WHAT THE FUCK YOU WANT TO.
 */
 
-// 暂未 AC，请勿使用
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -36,17 +34,26 @@ int main()
     for(auto &i : word) i = tolower(i);
     _(word);
     for(auto &i : document) i = tolower(i);
+    const string black = " ";
+    document = black + document + black;
     _(document);
 
     vector<int> positions;
     int count = 0;
 
-    for(int p = document.find(word, 0), last_p = 0; p != string::npos; positions.push_back(p), last_p = p, p = document.find(word, last_p));
+    __;
+    for(auto p = document.find(word, 0), last_p = 0u; p != string::npos; _(p), last_p = p + word.size(), p = document.find(word, last_p)) {
+	if(document[p - 1] == ' ' && document[p + word.size()] == ' ') {
+	    _print("Find a word!"), _(p);
+	    positions.push_back(p);
+	}
+    }
 
+    __;
     if (positions.size() == 0)
-        cout << -1 << flush;
+        cout << -1 << endl;
     else
-        cout << positions.size() << positions.front() << flush;
+        cout << positions.size() << ' ' << positions.front() - 1 << endl;
 
     return 0;
 }
