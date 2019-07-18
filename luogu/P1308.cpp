@@ -18,35 +18,35 @@
 
 #include <iostream>
 #include <string>
-#include <regex>
 #include <vector>
+#include <cctype>
+
+#define DEBUG
+#include "../big_baby.h"
 
 using namespace std;
 
-int main(){
+int main()
+{
     string word, document;
+    
     getline(cin, word);
     getline(cin, document);
 
-    string newWord = " ";
-    newWord += word;
-    newWord += " ";
+    for(auto &i : word) i = tolower(i);
+    _(word);
+    for(auto &i : document) i = tolower(i);
+    _(document);
 
     vector<int> positions;
+    int count = 0;
 
-    regex r(newWord, regex::icase);
-    int count = -1;
-    for(
-        sregex_iterator it(document.begin(), document.end(), r), end_it;
-        it != end_it;
-        ++it, ++count, positions.push_back(it -> position())
-    );
-    
-    if(count == 0) cout << -1 << flush;
-    else cout << count << flush;
+    for(int p = document.find(word, 0), last_p = 0; p != string::npos; positions.push_back(p), last_p = p, p = document.find(word, last_p));
 
-    for(auto &i : positions) cout << " " << i;
-    cout << flush;
+    if (positions.size() == 0)
+        cout << -1 << flush;
+    else
+        cout << positions.size() << positions.front() << flush;
 
     return 0;
 }
