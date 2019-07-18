@@ -16,6 +16,7 @@
 
 #include <iostream>
 #include <array>
+#include <algorithm>
 
 #define DEBUG
 #include "../big_baby.h"
