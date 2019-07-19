@@ -22,10 +22,14 @@ int main() {
     int n;
     cin >> n;
 
-    // 迭代游标(把整个图顺时针旋转 45 度)
-    int line = 1, column = 1;
-    // 实际坐标
-    int x = 1, y = 1;
-
-
+    int i = 0, j = 0;   // 前 i 条斜线一共 j 个数
+    while (n > j){
+        i += 1;
+        j += i;
+    }
+    if (i % 2 == 1)     // 奇数列，从右往左数
+        cout << j - n + 1 << "/" <<  i + n - j;
+    else                // 偶数列，从左往右数
+        cout << i + n - j << "/" <<  j - n + 1;
+    return 0;
 }
