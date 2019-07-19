@@ -3,3 +3,4 @@
 *.in
 
 .vscode/
+libstdc++-6.dll
