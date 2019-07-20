@@ -23,8 +23,6 @@
 #define DEBUG
 #include "../big_baby.h"
 
-// 暂未 AC
-
 using namespace std;
 
 int main() {
