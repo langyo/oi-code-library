@@ -16,12 +16,10 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <functional>
 
-#define DEBUG
-#include "../big_baby.h"
-
-// 暂未 AC
+// 暂未 AC，原因是超时
 
 using namespace std;
 
@@ -29,96 +27,45 @@ int main() {
     int n;
     cin >> n;
 
-    vector<int> pos;
+    vector<int> pos;    // pos 下标为行编号，pos 下标下的值为列编号
     vector<vector<int>> result;
 
-    function<bool(int, int)> pointState = [&](int x, int y) -> bool {
-        return pos.at(x - 1) == y;
+    auto check = [&]() -> bool {
+        // 只要逐个检查各个排列是否能保证每个子对角线内没有其它子即可
+        // 左上 - 右下皇后标记值向量
+        vector<int> leftUpToRightDown;
+        // 左下 - 右上皇后标记值向量
+        vector<int> leftDownToRightUp;
+        // 计算每个当前棋子的标记值，并检查两组向量中是否有重复数字，如果有则放弃该方案
+        bool continueFlag = false;
+        for(int i = 0; i < n; ++i) {
+            int row = i + 1, column = pos.at(i);
+            // 检查左上 - 右下
+            for(auto i : leftUpToRightDown) {
+                if(i == (column - row)) {
+                    continueFlag = true;
+                    break;
+                }
+            }
+            if(continueFlag) break;
+            // 检查左下 - 右上
+            for(auto i : leftDownToRightUp) {
+                if(i == (column + row)) {
+                    continueFlag = true;
+                    break;
+                }
+            }
+            if(continueFlag) break;
+            // 检查通过，写入标记列表
+            leftUpToRightDown.push_back(column - row);
+            leftDownToRightUp.push_back(column + row);
+        }
+        return !continueFlag;
     };
 
-    function<void(int)> dfs = [&](int times) {
-        _(times);
-        _for_print(pos, [](int n) -> int { return n; });
-        if(times >= n) {
-            // 检查有效性，探测对角线
-            bool flag;
-            // 左上 - 右下对角线的左上部分
-            _print("Left-up part");
-            flag = false;
-            for(int rowGlobal = 1; rowGlobal <= n; ++rowGlobal) {
-                for(int column = 1, row = rowGlobal; column <= rowGlobal; ++column, --rowGlobal) {
-                    // TODO: 检查出这里有死循环
-                    __;
-                    if(flag) {
-                        // 不容许出现第二个棋子
-                        _print("Second piece!");
-                        _(row), _(column);
-                        return;
-                    }
-                    __;
-                    if(pointState(row, column)) {
-                        _print("First piece!");
-                        _(row), _(column);
-                        flag = true;
-                    }
-                }
-            }
-            // 左上 - 右下对角线的右下部分
-            _print("Right-down part");
-            flag = false;
-            for(int columnGlobal = 2; columnGlobal <= n; ++columnGlobal) {
-                for(int row = n, column = columnGlobal; row >= columnGlobal; --row, ++column) {
-                    if(flag) {
-                        // 不容许出现第二个棋子
-                        _print("Second piece!");
-                        _(row), _(column);
-                        return;
-                    }
-                    if(pointState(row, column)) {
-                        _print("First piece!");
-                        _(row), _(column);
-                        flag = true;
-                    }
-                }
-            }
-            // 右上 - 左下对角线的左下部分
-            _print("Left-down part");
-            flag = false;
-            for(int rowGlobal = 1; rowGlobal <= n; ++rowGlobal) {
-                for(int column = 1, row = rowGlobal; column <= (n + 1 - rowGlobal); ++column, ++row) {
-                    if(flag) {
-                        // 不容许出现第二个棋子
-                        _print("Second piece!");
-                        _(row), _(column);
-                        return;
-                    }
-                    if(pointState(row, column)) {
-                        _print("First piece!");
-                        _(row), _(column);
-                        flag = true;
-                    }
-                }
-            }
-            // 右上 - 左下对角线的右上部分
-            _print("Right-up part");
-            flag = false;
-            for(int columnGlobal = 2; columnGlobal <= n; ++columnGlobal) {
-                for(int row = 1, column = columnGlobal; row <= (n + 1 - columnGlobal); ++row, ++column) {
-                    if(flag) {
-                        // 不容许出现第二个棋子
-                        _print("Second piece!");
-                        _(row), _(column);
-                        return;
-                    }
-                    if(pointState(row, column)) {
-                        _print("First piece!");
-                        _(row), _(column);
-                        flag = true;
-                    }
-                }
-            }
-            // 检查无误，将此情况压入列表
-            result.push_back(pos);
+    function<void(int)> dfs = [&](int t) {
+        if(t == n) {
+            if(check()) result.push_back(pos);
         } else {
             for(int i = 1; i <= n; ++i) {
                 // 检查是否重复，如有重复，直接跳过这一情况
@@ -132,7 +79,7 @@ int main() {
                 if(isRepeat) continue;
                 // 将该情况压入当前状态列表，并执行下一层状态搜索
                 pos.push_back(i);
-                dfs(times + 1);
+                dfs(t + 1);
                 pos.pop_back();
             }
         }
