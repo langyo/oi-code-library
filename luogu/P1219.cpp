@@ -18,6 +18,7 @@
 #include <vector>
 #include <algorithm>
 #include <functional>
+#include <bitset>
 
 // 暂未 AC，原因是超时
 
@@ -31,35 +32,32 @@ int main() {
     vector<vector<int>> result;
     int count = 0;
 
+    // 左上 - 右下皇后标记值向量
+    bitset<2 * 13 + 1> leftUpToRightDown;
+    // 左下 - 右上皇后标记值向量
+    bitset<2 * 13 + 1> leftDownToRightUp;
     auto check = [&]() -> bool {
         // 只要逐个检查各个排列是否能保证每个子对角线内没有其它子即可
-        // 左上 - 右下皇后标记值向量
-        vector<int> leftUpToRightDown;
-        // 左下 - 右上皇后标记值向量
-        vector<int> leftDownToRightUp;
+        leftUpToRightDown.reset();
+        leftDownToRightUp.reset();
         // 计算每个当前棋子的标记值，并检查两组向量中是否有重复数字，如果有则放弃该方案
         bool continueFlag = false;
         for(int i = 0; i < pos.size(); ++i) {
             int row = i + 1, column = pos.at(i);
+            int minus = column - row + n, plus = column + row;
             // 检查左上 - 右下
-            for(auto i : leftUpToRightDown) {
-                if(i == (column - row)) {
-                    continueFlag = true;
-                    break;
-                }
+            if(leftUpToRightDown[minus]) {
+                continueFlag = true;
+                break;
             }
-            if(continueFlag) break;
             // 检查左下 - 右上
-            for(auto i : leftDownToRightUp) {
-                if(i == (column + row)) {
-                    continueFlag = true;
-                    break;
-                }
+            if(leftDownToRightUp[plus]) {
+                continueFlag = true;
+                break;
             }
-            if(continueFlag) break;
             // 检查通过，写入标记列表
-            leftUpToRightDown.push_back(column - row);
-            leftDownToRightUp.push_back(column + row);
+            leftUpToRightDown[minus] = true;
+            leftDownToRightUp[plus] = true;
         }
         return !continueFlag;
     };
@@ -67,9 +65,9 @@ int main() {
     function<void(int)> dfs = [&](int t) {
         if(t == n) {
             if(check()) {
-		count += 1;
-		if(count <= 3) result.push_back(pos);
-	    }
+                count += 1;
+                if(count <= 3) result.push_back(pos);
+            }
         } else {
 	    if(!check()) return;
             for(int i = 1; i <= n; ++i) {
@@ -96,7 +94,7 @@ int main() {
         for(auto j = i.cbegin(); j != i.cend() - 1; ++j) cout << *j << " ";
         cout << i[i.size() - 1] << endl; 
     }
-    cout << result.size() << endl;
+    cout << count << endl;
 
     return 0;
 }
