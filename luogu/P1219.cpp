@@ -20,8 +20,6 @@
 #include <functional>
 #include <bitset>
 
-// 暂未 AC，原因是超时
-
 using namespace std;
 
 int main() {
@@ -62,6 +60,8 @@ int main() {
         return !continueFlag;
     };
 
+    bitset<13 + 1> state;
+    state.reset();
     function<void(int)> dfs = [&](int t) {
         if(t == n) {
             if(check()) {
@@ -69,21 +69,16 @@ int main() {
                 if(count <= 3) result.push_back(pos);
             }
         } else {
-	    if(!check()) return;
+	        if(!check()) return;
             for(int i = 1; i <= n; ++i) {
                 // 检查是否重复，如有重复，直接跳过这一情况
-                bool isRepeat = false;
-                for(auto j : pos) {
-                    if(i == j) {
-                        isRepeat = true;
-                        break;
-                    }
-                }
-                if(isRepeat) continue;
+                if(state.test(i)) continue;
                 // 将该情况压入当前状态列表，并执行下一层状态搜索
                 pos.push_back(i);
+                state.set(i);
                 dfs(t + 1);
                 pos.pop_back();
+                state.reset(i);
             }
         }
     };
