@@ -21,33 +21,40 @@
 
 using namespace std;
 
-int main(){
+int main()
+{
     int n;
     cin >> n;
 
     vector<int> list;
-    for(int i = 0; i < n; ++i){
+    for (int i = 0; i < n; ++i)
+    {
         int t;
         cin >> t;
         list.push_back(t);
     }
-    
+
     sort(list.begin(), list.end());
-    
+
     vector<int> out;
-    int t = - 1;
-    for(auto i = list.begin(); i != list.end(); ++i){
-        if(*i == t) continue;
-        else{
+    int t = -1;
+    for (auto i = list.begin(); i != list.end(); ++i)
+    {
+        if (*i == t)
+            continue;
+        else
+        {
             t = *i;
             out.push_back(*i);
         }
     }
-    
-    cout << out.size() << endl << out.front();
-    for(auto i = ++out.begin(); i != out.end(); ++i){
+
+    cout << out.size() << endl
+         << out.front();
+    for (auto i = ++out.begin(); i != out.end(); ++i)
+    {
         cout << " " << *i;
     }
-    
+
     return 0;
 }

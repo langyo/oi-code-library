@@ -18,14 +18,16 @@
 
 using namespace std;
 
-int main() {
+int main()
+{
     long long base, power, mod;
     cin >> base >> power >> mod;
 
     cout << base << "^" << power << " mod " << mod << "=";
 
     long long total = 1;
-    while (power > 0) {
+    while (power > 0)
+    {
         if (power % 2 == 1)
             total = total * base % mod;
         base = base * base % mod;

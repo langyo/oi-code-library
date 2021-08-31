@@ -18,10 +18,11 @@
 
 using namespace std;
 
-int main(){
-    int beginh, beginm, endh, endm;
-    cin >> beginh >> beginm >> endh >> endm;
-    int timeStack = (endh * 60 + endm) - (beginh * 60 + beginm);
-    cout << timeStack / 60 << " " << timeStack % 60;
-    return 0;
+int main()
+{
+  int beginh, beginm, endh, endm;
+  cin >> beginh >> beginm >> endh >> endm;
+  int timeStack = (endh * 60 + endm) - (beginh * 60 + beginm);
+  cout << timeStack / 60 << " " << timeStack % 60;
+  return 0;
 }

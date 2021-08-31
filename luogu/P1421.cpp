@@ -18,11 +18,12 @@
 
 using namespace std;
 
-int main(){
-    int a, b;
-    cin >> a >> b;
-    a *= 10;
-    a += b;
-    cout << a / 19;
-    return 0;
+int main()
+{
+  int a, b;
+  cin >> a >> b;
+  a *= 10;
+  a += b;
+  cout << a / 19;
+  return 0;
 }

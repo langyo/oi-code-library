@@ -20,23 +20,30 @@
 
 using namespace std;
 
-int main(){
+int main()
+{
     int n;
     cin >> n;
     vector<int> list;
     set<int> outCheck;
-    for(int i = 0; i < n; ++i){
+    for (int i = 0; i < n; ++i)
+    {
         int t;
         cin >> t;
         list.push_back(t);
     }
 
     int count = 0;
-    for(int a = 0; a < n - 1; ++a){
-        for(int b = a + 1; b < n; ++b){
-            if(a != b){
-                for(int i = 0; i < n; ++i){
-                    if(list[a] + list[b] == list[i]) outCheck.insert(list[i]);
+    for (int a = 0; a < n - 1; ++a)
+    {
+        for (int b = a + 1; b < n; ++b)
+        {
+            if (a != b)
+            {
+                for (int i = 0; i < n; ++i)
+                {
+                    if (list[a] + list[b] == list[i])
+                        outCheck.insert(list[i]);
                 }
             }
         }

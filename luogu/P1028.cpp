@@ -19,16 +19,19 @@
 
 using namespace std;
 
-int main() {
+int main()
+{
     int n;
     cin >> n;
 
     vector<int> list(n + 1, 0);
 
     // 递推每一个数
-    for(int i = 1; i <= n; ++i) {
+    for (int i = 1; i <= n; ++i)
+    {
         // 归纳之前的所有结果
-        for(int j = 1; j <= i / 2; ++j) {
+        for (int j = 1; j <= i / 2; ++j)
+        {
             list[i] += list[j];
         }
         // 它自身不进行拆数，也是一种情况

@@ -20,19 +20,23 @@
 
 using namespace std;
 
-int main(){
+int main()
+{
     int m, n;
     cin >> m >> n; // m 为内存容量，n 为文章长度
 
-    deque<int> q; // 当前内存队伍
+    deque<int> q;  // 当前内存队伍
     int count = 0; // 访问外存次数
-    for(int i = 0; i < n; ++i){
+    for (int i = 0; i < n; ++i)
+    {
         int in;
         cin >> in;
         // 检查内存里有没有 in，如果有就无需做任何操作，如果没有就得访问外存
-        if(find(q.begin(), q.end(), in) == q.end()){
+        if (find(q.begin(), q.end(), in) == q.end())
+        {
             // 内存里没有，先检查内存满没满
-            if(q.size() == m){
+            if (q.size() == m)
+            {
                 // 将最开头的那个丢掉
                 q.pop_front();
             }

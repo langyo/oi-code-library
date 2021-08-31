@@ -24,7 +24,8 @@
 
 using namespace std;
 
-int main() {
+int main()
+{
     // 苹果数量，力气
     int n, s;
     // 椅子高度，陶陶最大伸长高度
@@ -33,32 +34,37 @@ int main() {
     vector<pair<int, int>> apples;
 
     cin >> n >> s >> a >> b;
-    for(int i = 0; i < n; ++i) {
-	// 苹果高度，花费力气
-	int x, y;
-	cin >> x >> y;
-	apples.push_back(make_pair(x, y));
+    for (int i = 0; i < n; ++i)
+    {
+        // 苹果高度，花费力气
+        int x, y;
+        cin >> x >> y;
+        apples.push_back(make_pair(x, y));
     }
 
     // 化简数值，将最大高度加起来
     int height = a + b;
 
     // 根据花费的力气进行升序排列
-    sort(apples.begin(), apples.end(), [](const pair<int, int> &l, const pair<int, int> &r) -> bool {
-        if(l.second == r.second) {
-	    // 如果花费的力气一样，则以所需高度为第二排序依据
-	    return l.first < r.first;
-	}
-	return l.second < r.second;
-    });
+    sort(apples.begin(), apples.end(), [](const pair<int, int> &l, const pair<int, int> &r) -> bool
+         {
+             if (l.second == r.second)
+             {
+                 // 如果花费的力气一样，则以所需高度为第二排序依据
+                 return l.first < r.first;
+             }
+             return l.second < r.second;
+         });
 
     // 过一遍苹果列表，统计能摘的苹果数
     int count = 0;
-    for(auto &i : apples) {
-        if(height >= i.first && s >= i.second) {
-	    count += 1;
-	    s -= i.second;
-	}
+    for (auto &i : apples)
+    {
+        if (height >= i.first && s >= i.second)
+        {
+            count += 1;
+            s -= i.second;
+        }
     }
 
     // 输出结果

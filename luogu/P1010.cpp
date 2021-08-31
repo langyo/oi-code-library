@@ -20,13 +20,18 @@
 
 using namespace std;
 
-int main() {
+int main()
+{
     int x;
     cin >> x;
 
-    function<string(int, int, string)> dfs = [&](int x, int i, string s) -> string {
-        if (x == 0) return string("0");
-        do if (x & 1) s = (i == 1 ? "2" : "2(" + dfs(i, 0, "") + ")") + (s == "" ? "" : "+") + s;
+    function<string(int, int, string)> dfs = [&](int x, int i, string s) -> string
+    {
+        if (x == 0)
+            return string("0");
+        do
+            if (x & 1)
+                s = (i == 1 ? "2" : "2(" + dfs(i, 0, "") + ")") + (s == "" ? "" : "+") + s;
         while (++i, x >>= 1);
         return s;
     };

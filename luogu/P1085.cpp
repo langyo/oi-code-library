@@ -19,17 +19,21 @@
 
 using namespace std;
 
-int main(){
+int main()
+{
     int a, b;
     vector<int> list;
-    for(int i = 0; i < 7; ++i){
+    for (int i = 0; i < 7; ++i)
+    {
         cin >> a >> b;
         list.push_back(a + b);
     }
 
     int where = 0, biggest = 0;
-    for(int i = 0; i < 7; ++i){
-        if(biggest < list[i]){
+    for (int i = 0; i < 7; ++i)
+    {
+        if (biggest < list[i])
+        {
             where = i;
             biggest = list[i];
         }

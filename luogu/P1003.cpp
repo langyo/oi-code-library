@@ -19,12 +19,14 @@
 
 using namespace std;
 
-int main(){
+int main()
+{
     int n; // 地毯个数
     cin >> n;
 
     vector<int> a, b, g, k; // 地毯列表
-    for(int i = 0; i < n; ++i){
+    for (int i = 0; i < n; ++i)
+    {
         int m, n, x, y;
         cin >> m >> n >> x >> y;
         // 地毯左下角的坐标 (a, b)
@@ -39,14 +41,15 @@ int main(){
     int x, y; // 要求的坐标
     cin >> x >> y;
 
-    for(int i = n - 1; i >= 0; --i){
+    for (int i = n - 1; i >= 0; --i)
+    {
         // 从末尾到开头逐个遍历
-        if(
+        if (
             a[i] <= x &&
             x <= a[i] + g[i] &&
             b[i] <= y &&
-            y <= b[i] + k[i]
-        ){
+            y <= b[i] + k[i])
+        {
             cout << i + 1; // 寻找到地毯，输出以 1 开始编号的地毯编号，并直接退出程序
             return 0;
         }

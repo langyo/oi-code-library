@@ -24,20 +24,24 @@
 
 using namespace std;
 
-struct args_t {
+struct args_t
+{
     long long a, b, c;
     args_t(long long _a, long long _b, long long _c) : a(_a), b(_b), c(_c) {}
 
-    bool check(int x, int y, int z) {
+    bool check(int x, int y, int z)
+    {
         return x == a && y == b && z == c;
     }
 };
 
-int main() {
+int main()
+{
     vector<args_t> init_list;
     long long inA = 0, inB = 0, inC = 0;
     cin >> inA >> inB >> inC;
-    while (!(inA == -1 && inB == -1 && inC == -1)) {
+    while (!(inA == -1 && inB == -1 && inC == -1))
+    {
         args_t args(inA, inB, inC);
         init_list.push_back(args);
         cin >> inA >> inB >> inC;
@@ -47,10 +51,13 @@ int main() {
     vector<pair<args_t, long long>> cache;
 
     // 纯函数 w
-    function<long long(long long, long long, long long)> w = [&](long long a, long long b, long long c) -> long long {
+    function<long long(long long, long long, long long)> w = [&](long long a, long long b, long long c) -> long long
+    {
         // 检查缓存
-        for (auto &i : cache) {
-            if (i.first.check(a, b, c)) {
+        for (auto &i : cache)
+        {
+            if (i.first.check(a, b, c))
+            {
                 _print("Using cache:");
                 _(a), _(b), _(c);
                 _(i.second);
@@ -65,7 +72,8 @@ int main() {
             return w(20, 20, 20);
 
         int ret;
-        if (a < b && b < c) {
+        if (a < b && b < c)
+        {
             ret = w(a, b, c - 1) + w(a, b - 1, c - 1) - w(a, b - 1, c);
             args_t args(a, b, c);
             cache.push_back(make_pair(args, ret));
@@ -78,7 +86,8 @@ int main() {
     };
 
     // 正式开始计算
-    for (auto &i : init_list) {
+    for (auto &i : init_list)
+    {
         int ret = w(i.a, i.b, i.c);
         cout << "w(" << i.a << ", " << i.b << ", " << i.c << ") = " << ret << endl;
     }

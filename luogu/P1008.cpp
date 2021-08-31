@@ -20,9 +20,11 @@
 
 using namespace std;
 
-int main(){
+int main()
+{
     short a[10]; // a[i] 表示第 i 个数已经用过了
-    for (int i = 192, v = 0; i <= 327; ++i, v = 0){ // 最小 192，最大 327
+    for (int i = 192, v = 0; i <= 327; ++i, v = 0)
+    { // 最小 192，最大 327
         memset(a, 0, sizeof(a));
         a[i % 10] = a[i / 10 % 10] = a[i / 100] = a[i * 2 % 10] = a[i * 2 / 10 % 10] = a[i * 2 / 100] = a[i * 3 % 10] = a[i * 3 / 10 % 10] = a[i * 3 / 100] = 1; // 统计数字
         for (int j = 1; j <= 9; ++j)

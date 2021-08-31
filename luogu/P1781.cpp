@@ -22,29 +22,38 @@
 
 using namespace std;
 
-int main(){
+int main()
+{
     int n;
     cin >> n;
 
     vector<pair<string, int>> list;
-    for(int i = 1; i <= n; ++i){
+    for (int i = 1; i <= n; ++i)
+    {
         string t;
         cin >> t;
         list.push_back(make_pair(t, i));
     }
-    
-    sort(list.begin(), list.end(), [](const pair<string, int> &lhs, const pair<string, int> &rhs) -> bool {
-        const string &l = lhs.first, &r = rhs.first;
-        if(l.size() < r.size()) return true;
-        if(l.size() > r.size()) return false;
-        for(auto i = l.cbegin(), j = r.cbegin(); i != l.cend(); ++i, ++j){
-            if(*i < *j) return true;
-            if(*i > *j) return false;
-        }
-        return false;
-    });
-    
-    cout << list.back().second << endl << list.back().first;
-    
+
+    sort(list.begin(), list.end(), [](const pair<string, int> &lhs, const pair<string, int> &rhs) -> bool
+         {
+             const string &l = lhs.first, &r = rhs.first;
+             if (l.size() < r.size())
+                 return true;
+             if (l.size() > r.size())
+                 return false;
+             for (auto i = l.cbegin(), j = r.cbegin(); i != l.cend(); ++i, ++j)
+             {
+                 if (*i < *j)
+                     return true;
+                 if (*i > *j)
+                     return false;
+             }
+             return false;
+         });
+
+    cout << list.back().second << endl
+         << list.back().first;
+
     return 0;
 }

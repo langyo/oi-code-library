@@ -19,20 +19,24 @@
 
 using namespace std;
 
-int main(){
+int main()
+{
     vector<int> in;
-    for(int i = 0; i < 12; ++i){
+    for (int i = 0; i < 12; ++i)
+    {
         int t;
         cin >> t;
         in.push_back(t);
     }
 
     int t = 0, save = 0;
-    for(int i = 0; i < 12; ++i){
+    for (int i = 0; i < 12; ++i)
+    {
         t += (300 - in[i]);
         save += t / 100;
         t %= 100;
-        if(t < 0){
+        if (t < 0)
+        {
             // 出现钱不够用的情况，直接输出并退出程序，液！
             cout << "-" << i + 1;
             return 0;

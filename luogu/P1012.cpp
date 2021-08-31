@@ -22,23 +22,25 @@
 
 using namespace std;
 
-int main() {
+int main()
+{
     int n;
     cin >> n;
 
     vector<string> list;
-    for(auto i = 0; i < n; ++i) {
+    for (auto i = 0; i < n; ++i)
+    {
         string n;
         cin >> n;
         list.push_back(n);
     }
 
-    sort(list.rbegin(), list.rend(), [](const string &l, const string &r) -> bool {
-        return l + r < r + l;
-    });
+    sort(list.rbegin(), list.rend(), [](const string &l, const string &r) -> bool
+         { return l + r < r + l; });
 
     stringstream ss;
-    for(auto &i : list) ss << i;
+    for (auto &i : list)
+        ss << i;
 
     cout << ss.str() << endl;
 

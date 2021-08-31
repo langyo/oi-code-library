@@ -27,28 +27,37 @@ using namespace std;
 
 // 未完成
 
-int main(){
+int main()
+{
     string inputing;
     regex reg("\\(([1-9]*[0-9])\\,([LR]*)\\)");
-    
+
     vector<int> list(256, -1); // 存贮节点数据；默认所有节点全部初始化为 -1，代表空节点
     int size = 0;
 
     // 插入节点函数
-    auto insert = [&](int num, string path){
+    auto insert = [&](int num, string path)
+    {
         // 根据路径找到节点下标
         int where = 1;
-        for(auto &i : path){
-            if(i == 'L'){
+        for (auto &i : path)
+        {
+            if (i == 'L')
+            {
                 where *= 2;
-            }else if(i == 'R'){
+            }
+            else if (i == 'R')
+            {
                 where *= 2;
                 where += 1;
-            }else throw invalid_argument("Unknown Path!");
+            }
+            else
+                throw invalid_argument("Unknown Path!");
         }
 
         // 判断节点是否已有数字；此错误由本程序主动自行捕捉
-        if(list[where] != -1) throw runtime_error("Duplicate Nodes!");
+        if (list[where] != -1)
+            throw runtime_error("Duplicate Nodes!");
 
         // 将传入的数字写入对应节点下
         list[where] = num;
@@ -58,7 +67,8 @@ int main(){
     };
 
     // 以 BFS 获得先序遍历的路径列表
-    auto BFS = [&]() -> vector<int> {
+    auto BFS = [&]() -> vector<int>
+    {
         // 初始化任务队列
         queue<int> task;
         task.push(1);
@@ -67,12 +77,15 @@ int main(){
         vector<int> ret;
 
         // 开始遍历
-        while(!task.empty()){
+        while (!task.empty())
+        {
             int n = task.front();
             task.pop();
 
-            if((n * 2) != -1) task.push(n * 2); // 左
-            if((n * 2 + 1) != -1) task.push(n * 2 + 1); // 右
+            if ((n * 2) != -1)
+                task.push(n * 2); // 左
+            if ((n * 2 + 1) != -1)
+                task.push(n * 2 + 1); // 右
 
             ret.push_back(list[n]); /* cout << "Called " << n << endl; */
         }
@@ -81,9 +94,11 @@ int main(){
         return move(ret);
     };
 
-    while(cin >> inputing, inputing != "()"){
+    while (cin >> inputing, inputing != "()")
+    {
         smatch match;
-        if(!regex_match(inputing, match, reg)) throw invalid_argument("Parse falled!");
+        if (!regex_match(inputing, match, reg))
+            throw invalid_argument("Parse falled!");
 
         int num = stoi(match[1].str());
         string LRs = match[2].str();
@@ -92,7 +107,8 @@ int main(){
     }
 
     auto n = BFS();
-    for(auto &i : n) cout << i << endl;
+    for (auto &i : n)
+        cout << i << endl;
 
     return 0;
 }

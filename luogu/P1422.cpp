@@ -19,15 +19,21 @@
 
 using namespace std;
 
-int main(){
+int main()
+{
     int n;
     cin >> n;
     double m;
-    if(n <= 150){
+    if (n <= 150)
+    {
         m = 0.4463 * n;
-    }else if(150 < n && n <= 400){
+    }
+    else if (150 < n && n <= 400)
+    {
         m = 0.4463 * 150 + 0.4663 * (n - 150);
-    }else{
+    }
+    else
+    {
         m = 0.4663 * 150 + 0.4663 * 250 + 0.5663 * (n - 400);
     }
     cout << setprecision(1) << fixed << static_cast<int>(m * 10.0 + 0.5) / 10.0;

@@ -19,11 +19,13 @@
 
 using namespace std;
 
-int main(){
+int main()
+{
     int l, n, p;
     int maxValue = 0, minValue = 0;
     cin >> l >> n;
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i)
+    {
         cin >> p;
         maxValue = max(maxValue, max(l - p + 1, p));
         minValue = max(minValue, min(l - p + 1, p));

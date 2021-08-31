@@ -19,18 +19,22 @@
 
 using namespace std;
 
-int main(){
+int main()
+{
     int n;
     cin >> n;
 
     int count = 1, last, maxCount = 0;
     cin >> last;
 
-    for(int i = 1; i < n; ++i){
+    for (int i = 1; i < n; ++i)
+    {
         int k;
         cin >> k;
-        if(k >= last) ++count, last = k;
-        else maxCount = max(maxCount, count), count = 1, last = k;
+        if (k >= last)
+            ++count, last = k;
+        else
+            maxCount = max(maxCount, count), count = 1, last = k;
     }
 
     cout << maxCount;

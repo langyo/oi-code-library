@@ -19,14 +19,16 @@
 
 using namespace std;
 
-int main() {
+int main()
+{
   int n;
   cin >> n;
 
   vector<bool> arr((1 << n), false);
   arr.at(0) = true;
 
-  for (int i = 0; i < (1 << n); ++i) {
+  for (int i = 0; i < (1 << n); ++i)
+  {
     for (int j = 1; j < (1 << n) - i; ++j)
       cout << " ";
     for (int j = i; j > 0; --j)

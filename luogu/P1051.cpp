@@ -21,14 +21,16 @@
 
 using namespace std;
 
-int main() {
+int main()
+{
     int n;
     cin >> n;
 
     string greatest_name;
     int greatest_money = 0, total_money = 0;
 
-    for(auto i = 0; i < n; ++i) {
+    for (auto i = 0; i < n; ++i)
+    {
         string name;
         int score, remark, paper_count;
         string header, western;
@@ -37,13 +39,19 @@ int main() {
 
         int sum = 0;
 
-        if(score > 80 && paper_count > 0) sum += 8000;
-        if(score > 85 && remark > 80) sum += 4000;
-        if(score > 90) sum += 2000;
-        if(score > 85 && header == "Y") sum += 1000;
-        if(remark > 80 && western == "Y") sum += 850;
+        if (score > 80 && paper_count > 0)
+            sum += 8000;
+        if (score > 85 && remark > 80)
+            sum += 4000;
+        if (score > 90)
+            sum += 2000;
+        if (score > 85 && header == "Y")
+            sum += 1000;
+        if (remark > 80 && western == "Y")
+            sum += 850;
 
-        if(sum > greatest_money) {
+        if (sum > greatest_money)
+        {
             greatest_money = sum;
             greatest_name = name;
         }
@@ -51,7 +59,9 @@ int main() {
         total_money += sum;
     }
 
-    cout << greatest_name << endl << greatest_money << endl << total_money;
+    cout << greatest_name << endl
+         << greatest_money << endl
+         << total_money;
 
     return 0;
 }

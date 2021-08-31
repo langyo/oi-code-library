@@ -18,18 +18,20 @@
 
 using namespace std;
 
-int main() {
+int main()
+{
     int n;
     cin >> n;
 
-    int i = 0, j = 0;   // 前 i 条斜线一共 j 个数
-    while (n > j){
+    int i = 0, j = 0; // 前 i 条斜线一共 j 个数
+    while (n > j)
+    {
         i += 1;
         j += i;
     }
-    if (i % 2 == 1)     // 奇数列，从右往左数
-        cout << j - n + 1 << "/" <<  i + n - j;
-    else                // 偶数列，从左往右数
-        cout << i + n - j << "/" <<  j - n + 1;
+    if (i % 2 == 1) // 奇数列，从右往左数
+        cout << j - n + 1 << "/" << i + n - j;
+    else // 偶数列，从左往右数
+        cout << i + n - j << "/" << j - n + 1;
     return 0;
 }

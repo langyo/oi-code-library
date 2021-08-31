@@ -19,13 +19,14 @@
 
 using namespace std;
 
-int main(){
-    const double gamma = 0.5772156649;
-    int k, n;
-    cin >> k;
+int main()
+{
+  const double gamma = 0.5772156649;
+  int k, n;
+  cin >> k;
 
-    n = exp(k - gamma) + 0.5;
+  n = exp(k - gamma) + 0.5;
 
-    cout << n;
-    return 0;
+  cout << n;
+  return 0;
 }

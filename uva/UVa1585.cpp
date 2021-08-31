@@ -19,20 +19,26 @@
 
 using namespace std;
 
-int main(){
+int main()
+{
     int task_count;
     cin >> task_count;
 
-    for(int t = 0; t < task_count; ++t){
+    for (int t = 0; t < task_count; ++t)
+    {
         string n;
         int sum = 0, count = 0;
 
         cin >> n;
-        for(auto i : n){
-            if(i == 'O'){
+        for (auto i : n)
+        {
+            if (i == 'O')
+            {
                 ++count;
                 sum += count;
-            }else{
+            }
+            else
+            {
                 count = 0;
             }
         }

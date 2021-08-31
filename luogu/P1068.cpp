@@ -22,30 +22,36 @@
 
 using namespace std;
 
-int main(){
+int main()
+{
     int n, m;
     cin >> n >> m;
 
     vector<pair<int, int>> list;
-    for(int i = 0; i < n; ++i){
+    for (int i = 0; i < n; ++i)
+    {
         int k, s;
         cin >> k >> s;
         list.push_back(make_pair(k, s));
     }
-    
+
     m = static_cast<int>(static_cast<double>(m) * 1.5F);
-    
-    sort(list.begin(), list.end(), [](const pair<int, int> &lhs, const pair<int, int> &rhs) -> bool {
-        if(lhs.second == rhs.second) return lhs.first < rhs.first;
-        return lhs.second > rhs.second;
-    });
+
+    sort(list.begin(), list.end(), [](const pair<int, int> &lhs, const pair<int, int> &rhs) -> bool
+         {
+             if (lhs.second == rhs.second)
+                 return lhs.first < rhs.first;
+             return lhs.second > rhs.second;
+         });
 
     int score_line = list.at(m - 1).second;
-    for(; list.at(m).second == score_line; ++m);
+    for (; list.at(m).second == score_line; ++m)
+        ;
     cout << score_line << " " << m << endl;
-    for(int i = 0; i < m; ++i){
+    for (int i = 0; i < m; ++i)
+    {
         cout << list.at(i).first << " " << list.at(i).second << endl;
     }
-    
+
     return 0;
 }
