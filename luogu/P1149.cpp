@@ -19,11 +19,11 @@
 
 using namespace std;
 
-int main()
+long main()
 {
 	constexpr array<int, 10> numCount = {6, 2, 5, 5, 4, 5, 6, 3, 7, 6};
 
-	int k;
+	long k;
 	cin >> k;
 
 	if (k <= 10)
@@ -35,31 +35,31 @@ int main()
 	k -= 4; // 去掉加号与等号
 
 	// 累计满足条件的等式数量
-	int count = 0;
+	long count = 0;
 
 	// 生成所有有效的候选等式
 	typedef pair<pair<int, int>, int> expr_type;
 	vector<expr_type> match_list;
-	for (int left = 0; left < 1000; ++left)
+	for (long left = 0; left < 1000; ++left)
 	{
-		for (int right = 0; right < 1000; ++right)
+		for (long right = 0; right < 1000; ++right)
 		{
 			// 取得各个位的火柴棒个数并加起来
-			int n = 0;
+			long n = 0;
 			if (left == 0)
 				n += numCount[0];
 			else
-				for (int i = left; i != 0; n += numCount[i % 10], i /= 10)
+				for (long i = left; i != 0; n += numCount[i % 10], i /= 10)
 					;
 			if (right == 0)
 				n += numCount[0];
 			else
-				for (int i = right; i != 0; n += numCount[i % 10], i /= 10)
+				for (long i = right; i != 0; n += numCount[i % 10], i /= 10)
 					;
 			if (left + right == 0)
 				n += numCount[0];
 			else
-				for (int i = left + right; i != 0; n += numCount[i % 10], i /= 10)
+				for (long i = left + right; i != 0; n += numCount[i % 10], i /= 10)
 					;
 			// 判定是否与所给根数一样
 			if (n == k)

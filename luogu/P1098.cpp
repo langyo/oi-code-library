@@ -20,14 +20,14 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int p1, p2, p3;
+    long p1, p2, p3;
     string s;
     stringstream out;
 
     cin >> p1 >> p2 >> p3 >> s;
-    for (int i = 0; i < s.size(); ++i)
+    for (long i = 0; i < s.size(); ++i)
     {
         if (s[i] != '-')
             out << s[i];
@@ -45,7 +45,7 @@ int main()
             {
                 if (p1 == 3)
                 {
-                    for (int k = 1; k <= (s[i + 1] - s[i - 1] - 1) * p2; ++k)
+                    for (long k = 1; k <= (s[i + 1] - s[i - 1] - 1) * p2; ++k)
                         out << '*';
                 }
                 else if (s[i + 1] <= 57 && s[i + 1] >= 48 && s[i - 1] <= 57 && s[i - 1] >= 48)
@@ -53,13 +53,13 @@ int main()
                     if (p3 == 1)
                     {
                         for (char k = s[i - 1] + 1; k <= s[i + 1] - 1; ++k)
-                            for (int j = 1; j <= p2; j++)
+                            for (long j = 1; j <= p2; j++)
                                 out << k;
                     }
                     else if (p3 == 2)
                     {
                         for (char k = s[i + 1] - 1; k >= s[i - 1] + 1; --k)
-                            for (int j = 1; j <= p2; j++)
+                            for (long j = 1; j <= p2; j++)
                                 out << k;
                     }
                 }
@@ -70,13 +70,13 @@ int main()
                         if (p3 == 1)
                         {
                             for (char k = s[i - 1] + 1; k <= s[i + 1] - 1; ++k)
-                                for (int j = 1; j <= p2; j++)
+                                for (long j = 1; j <= p2; j++)
                                     out << k;
                         }
                         else if (p3 == 2)
                         {
                             for (char k = s[i + 1] - 1; k >= s[i - 1] + 1; --k)
-                                for (int j = 1; j <= p2; j++)
+                                for (long j = 1; j <= p2; j++)
                                     out << k;
                         }
                     }
@@ -85,13 +85,13 @@ int main()
                         if (p3 == 1)
                         {
                             for (char k = s[i - 1] + 1; k <= s[i + 1] - 1; ++k)
-                                for (int j = 1; j <= p2; j++)
+                                for (long j = 1; j <= p2; j++)
                                     out << static_cast<char>(k - 32);
                         }
                         else if (p3 == 2)
                         {
                             for (char k = s[i + 1] - 1; k >= s[i - 1] + 1; --k)
-                                for (int j = 1; j <= p2; j++)
+                                for (long j = 1; j <= p2; j++)
                                     out << static_cast<char>(k - 32);
                         }
                     }

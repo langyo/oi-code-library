@@ -21,15 +21,15 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int n;
+    long n;
     cin >> n;
 
     vector<int> list;
-    for (int i = 0; i < n; ++i)
+    for (long i = 0; i < n; ++i)
     {
-        int t;
+        long t;
         cin >> t;
         list.push_back(t);
     }
@@ -37,7 +37,7 @@ int main()
     sort(list.begin(), list.end());
 
     vector<int> out;
-    int t = -1;
+    long t = -1;
     for (auto i = list.begin(); i != list.end(); ++i)
     {
         if (*i == t)

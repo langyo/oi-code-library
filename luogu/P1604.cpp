@@ -21,9 +21,9 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int B;
+    long B;
     string in1, in2;
     cin >> B >> in1 >> in2;
 
@@ -47,8 +47,8 @@ int main()
         num1.swap(num2);
 
     vector<short> sum;
-    int temp = 0;
-    for (int p = 0; p < num1.size(); ++p)
+    long temp = 0;
+    for (long p = 0; p < num1.size(); ++p)
     {
         temp += num1.at(p) + num2.at(p);
         if (temp > (B - 1))
@@ -62,7 +62,7 @@ int main()
             temp = 0;
         }
     }
-    for (int p = num1.size(); p < num2.size(); ++p)
+    for (long p = num1.size(); p < num2.size(); ++p)
     {
         temp += num2.at(p);
         if (temp > (B - 1))

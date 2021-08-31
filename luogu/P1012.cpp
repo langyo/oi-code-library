@@ -22,9 +22,9 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int n;
+    long n;
     cin >> n;
 
     vector<string> list;

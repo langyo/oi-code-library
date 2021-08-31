@@ -19,9 +19,9 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int n;
+    long n;
     cin >> n;
     double m;
     if (n <= 150)

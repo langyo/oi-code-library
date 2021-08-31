@@ -22,11 +22,11 @@ using namespace std;
 
 // 该代码为未完善的代码，未正式测试，请勿使用
 
-int main()
+long main()
 {
     // 在此 bitset 中，被置位为 W，未被置位为 L
     bitset<25 * 2500 + 1> map;
-    int length = 0;
+    long length = 0;
 
     string in;
     while (cin >> in)
@@ -52,12 +52,12 @@ int main()
     }
 
     // 统计 11 分制下的结果
-    for (int count = 0; count < length % 11; ++count)
+    for (long count = 0; count < length % 11; ++count)
     {
-        int W = 0, L = 0;
-        for (int i = 0; i < 11; ++i)
+        long W = 0, L = 0;
+        for (long i = 0; i < 11; ++i)
         {
-            int count_mul = count * 11;
+            long count_mul = count * 11;
             if (map.test(count_mul + i))
                 ++W;
             else
@@ -67,8 +67,8 @@ int main()
     }
     ([&]()
      {
-         int W = 0, L = 0;
-         for (int i = length % 11 * 11; i < length; ++i)
+         long W = 0, L = 0;
+         for (long i = length % 11 * 11; i < length; ++i)
          {
              if (map.test(i))
                  ++W;
@@ -81,12 +81,12 @@ int main()
     cout << endl;
 
     // 统计 21 分制下的结果
-    for (int count = 0; count < length % 21; ++count)
+    for (long count = 0; count < length % 21; ++count)
     {
-        int W = 0, L = 0;
-        for (int i = 0; i < 21; ++i)
+        long W = 0, L = 0;
+        for (long i = 0; i < 21; ++i)
         {
-            int count_mul = count * 21;
+            long count_mul = count * 21;
             if (map.test(count_mul + i))
                 ++W;
             else
@@ -96,8 +96,8 @@ int main()
     }
     ([&]()
      {
-         int W = 0, L = 0;
-         for (int i = length % 21 * 21; i < length; ++i)
+         long W = 0, L = 0;
+         for (long i = length % 21 * 21; i < length; ++i)
          {
              if (map.test(i))
                  ++W;

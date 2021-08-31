@@ -24,13 +24,13 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int n, m;
+    long n, m;
     scanf("%d%d", &n, &m);
 
     array<int, 100001> back, list;
-    for (int i = 0, t; i < n; ++i)
+    for (long i = 0, t; i < n; ++i)
     {
         scanf("%d", &t);
         back.at(i) = t;
@@ -40,7 +40,7 @@ int main()
     array<int, 100001> lTasks, rTasks;
     for (auto i = 0; i < m; ++i)
     {
-        int t1, t2;
+        long t1, t2;
         scanf("%d%d", &t1, &t2);
         lTasks.at(i) = t1 - 1;
         rTasks.at(i) = t2;

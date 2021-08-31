@@ -29,13 +29,13 @@ struct args_t
     long long a, b, c;
     args_t(long long _a, long long _b, long long _c) : a(_a), b(_b), c(_c) {}
 
-    bool check(int x, int y, int z)
+    bool check(long x, long y, long z)
     {
         return x == a && y == b && z == c;
     }
 };
 
-int main()
+long main()
 {
     vector<args_t> init_list;
     long long inA = 0, inB = 0, inC = 0;
@@ -71,7 +71,7 @@ int main()
         if (a > 20 || b > 20 || c > 20)
             return w(20, 20, 20);
 
-        int ret;
+        long ret;
         if (a < b && b < c)
         {
             ret = w(a, b, c - 1) + w(a, b - 1, c - 1) - w(a, b - 1, c);
@@ -88,7 +88,7 @@ int main()
     // 正式开始计算
     for (auto &i : init_list)
     {
-        int ret = w(i.a, i.b, i.c);
+        long ret = w(i.a, i.b, i.c);
         cout << "w(" << i.a << ", " << i.b << ", " << i.c << ") = " << ret << endl;
     }
 

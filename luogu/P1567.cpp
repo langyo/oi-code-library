@@ -19,17 +19,17 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int n;
+    long n;
     cin >> n;
 
-    int count = 1, last, maxCount = 0;
+    long count = 1, last, maxCount = 0;
     cin >> last;
 
-    for (int i = 1; i < n; ++i)
+    for (long i = 1; i < n; ++i)
     {
-        int k;
+        long k;
         cin >> k;
         if (k >= last)
             ++count, last = k;

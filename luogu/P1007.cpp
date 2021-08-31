@@ -19,12 +19,12 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int l, n, p;
-    int maxValue = 0, minValue = 0;
+    long l, n, p;
+    long maxValue = 0, minValue = 0;
     cin >> l >> n;
-    for (int i = 0; i < n; ++i)
+    for (long i = 0; i < n; ++i)
     {
         cin >> p;
         maxValue = max(maxValue, max(l - p + 1, p));

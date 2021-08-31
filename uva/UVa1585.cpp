@@ -19,15 +19,15 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int task_count;
+    long task_count;
     cin >> task_count;
 
-    for (int t = 0; t < task_count; ++t)
+    for (long t = 0; t < task_count; ++t)
     {
         string n;
-        int sum = 0, count = 0;
+        long sum = 0, count = 0;
 
         cin >> n;
         for (auto i : n)
@@ -44,5 +44,6 @@ int main()
         }
         cout << sum << endl;
     }
+
     return 0;
 }

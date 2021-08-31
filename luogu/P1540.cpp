@@ -20,16 +20,16 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int m, n;
+    long m, n;
     cin >> m >> n; // m 为内存容量，n 为文章长度
 
     deque<int> q;  // 当前内存队伍
-    int count = 0; // 访问外存次数
-    for (int i = 0; i < n; ++i)
+    long count = 0; // 访问外存次数
+    for (long i = 0; i < n; ++i)
     {
-        int in;
+        long in;
         cin >> in;
         // 检查内存里有没有 in，如果有就无需做任何操作，如果没有就得访问外存
         if (find(q.begin(), q.end(), in) == q.end())

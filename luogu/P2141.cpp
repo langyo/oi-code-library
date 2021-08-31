@@ -20,27 +20,27 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int n;
+    long n;
     cin >> n;
     vector<int> list;
     set<int> outCheck;
-    for (int i = 0; i < n; ++i)
+    for (long i = 0; i < n; ++i)
     {
-        int t;
+        long t;
         cin >> t;
         list.push_back(t);
     }
 
-    int count = 0;
-    for (int a = 0; a < n - 1; ++a)
+    long count = 0;
+    for (long a = 0; a < n - 1; ++a)
     {
-        for (int b = a + 1; b < n; ++b)
+        for (long b = a + 1; b < n; ++b)
         {
             if (a != b)
             {
-                for (int i = 0; i < n; ++i)
+                for (long i = 0; i < n; ++i)
                 {
                     if (list[a] + list[b] == list[i])
                         outCheck.insert(list[i]);

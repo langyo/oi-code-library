@@ -25,7 +25,7 @@
 
 using namespace std;
 
-int main()
+long main()
 {
     string expr;
     getline(cin, expr);
@@ -37,8 +37,8 @@ int main()
     long long num = 0;      // 数字缓存
 
     // 注意，下面的两个累积和都是算作等式左边的，这是为了减少判断部分的复杂度
-    int unknown_weight = 0; // 未知数权值
-    int constant = 0;       // 常数值
+    long unknown_weight = 0; // 未知数权值
+    long constant = 0;       // 常数值
     char alpha = 'a';       // 未知数符号
 
     // 运算器函数

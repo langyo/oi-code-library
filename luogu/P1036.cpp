@@ -24,33 +24,33 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int n, k;
+    long n, k;
     cin >> n >> k;
 
     vector<int> list(n, 0);
     for (auto &i : list)
         cin >> i;
 
-    int filter_max_prime_num = accumulate(list.begin(), list.end(), 0);
+    long filter_max_prime_num = accumulate(list.begin(), list.end(), 0);
     _(filter_max_prime_num);
 
     // 预缓存素数列表
     vector<bool> prime_num_list(filter_max_prime_num + 1, true);
-    for (int i = 2; i <= filter_max_prime_num; ++i)
+    for (long i = 2; i <= filter_max_prime_num; ++i)
     {
         if (prime_num_list[i])
         {
-            for (int j = i * 2; j < filter_max_prime_num; j += i)
+            for (long j = i * 2; j < filter_max_prime_num; j += i)
                 prime_num_list[j] = false;
         }
     }
 
     typedef decltype(list.begin()) I;
-    int count = 0;
+    long count = 0;
 
-    function<void(I, I, int, int)> dfs = [&](I begin, I end, int sum, int last_k)
+    function<void(I, I, int, int)> dfs = [&](I begin, I end, long sum, long last_k)
     {
         _print("Enter a new stack level:");
         _(sum), _(last_k);

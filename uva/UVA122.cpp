@@ -27,19 +27,19 @@ using namespace std;
 
 // 未完成
 
-int main()
+long main()
 {
     string inputing;
     regex reg("\\(([1-9]*[0-9])\\,([LR]*)\\)");
 
     vector<int> list(256, -1); // 存贮节点数据；默认所有节点全部初始化为 -1，代表空节点
-    int size = 0;
+    long size = 0;
 
     // 插入节点函数
-    auto insert = [&](int num, string path)
+    auto insert = [&](long num, string path)
     {
         // 根据路径找到节点下标
-        int where = 1;
+        long where = 1;
         for (auto &i : path)
         {
             if (i == 'L')
@@ -79,7 +79,7 @@ int main()
         // 开始遍历
         while (!task.empty())
         {
-            int n = task.front();
+            long n = task.front();
             task.pop();
 
             if ((n * 2) != -1)
@@ -100,7 +100,7 @@ int main()
         if (!regex_match(inputing, match, reg))
             throw invalid_argument("Parse falled!");
 
-        int num = stoi(match[1].str());
+        long num = stoi(match[1].str());
         string LRs = match[2].str();
 
         insert(num, LRs);

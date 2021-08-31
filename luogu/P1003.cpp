@@ -19,15 +19,15 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int n; // 地毯个数
+    long n; // 地毯个数
     cin >> n;
 
     vector<int> a, b, g, k; // 地毯列表
-    for (int i = 0; i < n; ++i)
+    for (long i = 0; i < n; ++i)
     {
-        int m, n, x, y;
+        long m, n, x, y;
         cin >> m >> n >> x >> y;
         // 地毯左下角的坐标 (a, b)
         a.push_back(m);
@@ -38,10 +38,10 @@ int main()
         k.push_back(y);
     }
 
-    int x, y; // 要求的坐标
+    long x, y; // 要求的坐标
     cin >> x >> y;
 
-    for (int i = n - 1; i >= 0; --i)
+    for (long i = n - 1; i >= 0; --i)
     {
         // 从末尾到开头逐个遍历
         if (

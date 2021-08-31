@@ -23,14 +23,14 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int n;
+    long n;
     cin >> n;
 
     vector<int> pos; // pos 下标为行编号，pos 下标下的值为列编号
     vector<vector<int>> result;
-    int count = 0;
+    long count = 0;
 
     // 左上 - 右下皇后标记值向量
     bitset<2 * 13 + 1> leftUpToRightDown;
@@ -43,10 +43,10 @@ int main()
         leftDownToRightUp.reset();
         // 计算每个当前棋子的标记值，并检查两组向量中是否有重复数字，如果有则放弃该方案
         bool continueFlag = false;
-        for (int i = 0; i < pos.size(); ++i)
+        for (long i = 0; i < pos.size(); ++i)
         {
-            int row = i + 1, column = pos.at(i);
-            int minus = column - row + n, plus = column + row;
+            long row = i + 1, column = pos.at(i);
+            long minus = column - row + n, plus = column + row;
             // 检查左上 - 右下
             if (leftUpToRightDown[minus])
             {
@@ -68,7 +68,7 @@ int main()
 
     bitset<13 + 1> state;
     state.reset();
-    function<void(int)> dfs = [&](int t)
+    function<void(int)> dfs = [&](long t)
     {
         if (t == n)
         {
@@ -83,7 +83,7 @@ int main()
         {
             if (!check())
                 return;
-            for (int i = 1; i <= n; ++i)
+            for (long i = 1; i <= n; ++i)
             {
                 // 检查是否重复，如有重复，直接跳过这一情况
                 if (state.test(i))

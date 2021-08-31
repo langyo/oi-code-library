@@ -19,18 +19,18 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int a, b;
+    long a, b;
     vector<int> list;
-    for (int i = 0; i < 7; ++i)
+    for (long i = 0; i < 7; ++i)
     {
         cin >> a >> b;
         list.push_back(a + b);
     }
 
-    int where = 0, biggest = 0;
-    for (int i = 0; i < 7; ++i)
+    long where = 0, biggest = 0;
+    for (long i = 0; i < 7; ++i)
     {
         if (biggest < list[i])
         {

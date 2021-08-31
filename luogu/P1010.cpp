@@ -20,12 +20,12 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int x;
+    long x;
     cin >> x;
 
-    function<string(int, int, string)> dfs = [&](int x, int i, string s) -> string
+    function<string(int, int, string)> dfs = [&](long x, long i, string s) -> string
     {
         if (x == 0)
             return string("0");

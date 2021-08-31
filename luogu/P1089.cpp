@@ -19,18 +19,18 @@
 
 using namespace std;
 
-int main()
+long main()
 {
     vector<int> in;
-    for (int i = 0; i < 12; ++i)
+    for (long i = 0; i < 12; ++i)
     {
-        int t;
+        long t;
         cin >> t;
         in.push_back(t);
     }
 
-    int t = 0, save = 0;
-    for (int i = 0; i < 12; ++i)
+    long t = 0, save = 0;
+    for (long i = 0; i < 12; ++i)
     {
         t += (300 - in[i]);
         save += t / 100;

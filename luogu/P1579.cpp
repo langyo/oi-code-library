@@ -22,18 +22,18 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int n;
+    long n;
     cin >> n;
 
     // 预缓存素数列表
     vector<bool> prime_num_list(n + 1, true);
-    for (int i = 2; i <= n; ++i)
+    for (long i = 2; i <= n; ++i)
     {
         if (prime_num_list[i])
         {
-            for (int j = i * 2; j < n; j += i)
+            for (long j = i * 2; j < n; j += i)
                 prime_num_list[j] = false;
         }
     }
@@ -54,11 +54,11 @@ int main()
 
     // 情况 [2]
     // 前两个数字暴力枚举，不过限定范围在奇数集，第三个数字直接减，然后逐个检查
-    for (int a = 3; a <= n; a += 2)
+    for (long a = 3; a <= n; a += 2)
     {
-        for (int b = 3; b <= n; b += 2)
+        for (long b = 3; b <= n; b += 2)
         {
-            int c = n - a - b;
+            long c = n - a - b;
             if (prime_num_list[a] && prime_num_list[b] && prime_num_list[c])
             {
                 cout << a << " " << b << " " << c << endl;

@@ -24,7 +24,7 @@
 using namespace std;
 
 // 求最大公约数
-int gcd(int a, int b)
+long gcd(long a, long b)
 {
     // 更相减损法，在此鸣谢祖冲之为此算法提供思路
     while (a != b)
@@ -38,13 +38,13 @@ int gcd(int a, int b)
     return a;
 }
 
-int main()
+long main()
 {
-    int a, b, c;
+    long a, b, c;
     cin >> a >> b >> c;
 
     // 化简比例式
-    int k = gcd(gcd(a, b), c);
+    long k = gcd(gcd(a, b), c);
     a /= k, b /= k, c /= k;
 
     // 枚举所有排列
@@ -53,9 +53,9 @@ int main()
     do
     {
         // 拼接数字
-        int concatA = 100 * num[0] + 10 * num[1] + num[2];
-        int concatB = 100 * num[3] + 10 * num[4] + num[5];
-        int concatC = 100 * num[6] + 10 * num[7] + num[8];
+        long concatA = 100 * num[0] + 10 * num[1] + num[2];
+        long concatB = 100 * num[3] + 10 * num[4] + num[5];
+        long concatC = 100 * num[6] + 10 * num[7] + num[8];
         // 检查比例式的数字是否能与这些数字整除
         if (concatA % a != 0 || concatB % b != 0 || concatC % c != 0)
             continue;

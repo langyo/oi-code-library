@@ -18,12 +18,12 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int n;
+    long n;
     cin >> n;
 
-    int i = 0, j = 0; // 前 i 条斜线一共 j 个数
+    long i = 0, j = 0; // 前 i 条斜线一共 j 个数
     while (n > j)
     {
         i += 1;

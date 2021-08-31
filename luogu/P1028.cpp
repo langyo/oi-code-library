@@ -19,18 +19,18 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int n;
+    long n;
     cin >> n;
 
     vector<int> list(n + 1, 0);
 
     // 递推每一个数
-    for (int i = 1; i <= n; ++i)
+    for (long i = 1; i <= n; ++i)
     {
         // 归纳之前的所有结果
-        for (int j = 1; j <= i / 2; ++j)
+        for (long j = 1; j <= i / 2; ++j)
         {
             list[i] += list[j];
         }

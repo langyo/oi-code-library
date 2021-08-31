@@ -18,9 +18,9 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-  int a, b;
+  long a, b;
   cin >> a >> b;
   a *= 10;
   a += b;

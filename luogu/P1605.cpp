@@ -23,33 +23,33 @@
 
 using namespace std;
 
-int main()
+long main()
 {
     // n 为行，m 为列，t 为障碍总数
-    int n, m, t;
+    long n, m, t;
     cin >> n >> m >> t;
 
     // 起点坐标为 (sx, sy)，终点坐标为 (fx, fy)
-    int sx, sy, fx, fy;
+    long sx, sy, fx, fy;
     cin >> sx >> sy >> fx >> fy;
     sx -= 1, sy -= 1, fx -= 1, fy -= 1;
 
     // 地图初始化
     vector<vector<int>> map;
-    for (int i = 0; i < n; ++i)
+    for (long i = 0; i < n; ++i)
         map.emplace_back(m, 0);
 
     // 生成障碍；障碍的标识值为 -1
-    for (int i = 0; i < t; ++i)
+    for (long i = 0; i < t; ++i)
     {
-        int x, y;
+        long x, y;
         cin >> x >> y;
         map[x - 1][y - 1] = -1;
     }
 
     // DFS 函数
-    int state = 0; // 统计路线个数
-    function<void(int, int, int)> dfs = [&](int x, int y, int count)
+    long state = 0; // 统计路线个数
+    function<void(int, int, int)> dfs = [&](long x, long y, long count)
     {
         _(x), _(y), _(count);
         // 边界检查

@@ -22,25 +22,25 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int n;
+    long n;
     cin >> n;
 
     vector<vector<int>> map;
-    for (int i = 0; i < n; ++i)
+    for (long i = 0; i < n; ++i)
     {
         map.emplace_back();
-        for (int j = 0; j < n; ++j)
+        for (long j = 0; j < n; ++j)
         {
-            int in;
+            long in;
             cin >> in;
             map.back().push_back(in);
         }
     }
 
     // 染色 BFS，不过这是用来染 -1 的，用在四个边角
-    auto bfs = [&](int x, int y)
+    auto bfs = [&](long x, long y)
     {
         deque<pair<int, int>> stack;
         stack.push_back(make_pair(x, y));
@@ -70,7 +70,7 @@ int main()
     };
 
     // 从边缘染色
-    for (int i = 0; i < n; ++i)
+    for (long i = 0; i < n; ++i)
         bfs(0, i), bfs(i, 0), bfs(n - 1, i), bfs(i, n - 1);
 
     // 染色闭合部分

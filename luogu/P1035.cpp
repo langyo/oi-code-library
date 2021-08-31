@@ -19,10 +19,10 @@
 
 using namespace std;
 
-int main()
+long main()
 {
   const double gamma = 0.5772156649;
-  int k, n;
+  long k, n;
   cin >> k;
 
   n = exp(k - gamma) + 0.5;

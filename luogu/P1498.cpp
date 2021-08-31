@@ -19,25 +19,25 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-  int n;
+  long n;
   cin >> n;
 
   vector<bool> arr((1 << n), false);
   arr.at(0) = true;
 
-  for (int i = 0; i < (1 << n); ++i)
+  for (long i = 0; i < (1 << n); ++i)
   {
-    for (int j = 1; j < (1 << n) - i; ++j)
+    for (long j = 1; j < (1 << n) - i; ++j)
       cout << " ";
-    for (int j = i; j > 0; --j)
+    for (long j = i; j > 0; --j)
       arr.at(j) = arr.at(j) != arr.at(j - 1);
     if (i % 2 == 0)
-      for (int j = 0; j <= i; ++j)
+      for (long j = 0; j <= i; ++j)
         cout << (arr.at(j) ? "/\\" : "  ");
     else
-      for (int j = 0; j <= i; j += 2)
+      for (long j = 0; j <= i; j += 2)
         cout << (arr.at(j) ? "/__\\" : "    ");
     cout << endl;
   }

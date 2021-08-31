@@ -19,21 +19,21 @@
 
 using namespace std;
 
-int main()
+long main()
 {
   array<int, 10> arr; // 苹果高度数组
-  for (int i = 0; i < 10; ++i)
+  for (long i = 0; i < 10; ++i)
     cin >> arr[i];
-  int h; // 陶陶的身高
+  long h; // 陶陶的身高
   cin >> h;
 
   // 预处理，统统减 30 cm
-  for (int i = 0; i < 10; ++i)
+  for (long i = 0; i < 10; ++i)
     arr[i] -= 30;
 
   // 开始统计
-  int count = 0;
-  for (int i = 0; i < 10; ++i)
+  long count = 0;
+  for (long i = 0; i < 10; ++i)
     if (arr[i] <= h)
       count += 1;
 

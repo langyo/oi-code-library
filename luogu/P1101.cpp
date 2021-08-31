@@ -20,16 +20,16 @@
 
 using namespace std;
 
-int main()
+long main()
 {
     const string yizhong("yizhong");
 
-    int n;
+    long n;
     cin >> n;
     vector<vector<char>> map;
     vector<vector<bool>> flag;
 
-    for (int i = 0; i < n; ++i)
+    for (long i = 0; i < n; ++i)
     {
         string str;
         cin >> str;
@@ -51,7 +51,7 @@ int main()
         RightDown
     };
 
-    function<bool(int, int, int, int)> dfs = [&](int x, int y, int direction, int strPos) -> bool
+    function<bool(int, int, int, int)> dfs = [&](long x, long y, long direction, long strPos) -> bool
     {
         // 边界检查
         if (x < 0 || y < 0 || x >= n || y >= n)
@@ -133,9 +133,9 @@ int main()
     };
 
     // 搜索整幅图里的字符是否与第一个字符相等，有则进行八个方向的搜索
-    for (int x = 0; x < n; ++x)
+    for (long x = 0; x < n; ++x)
     {
-        for (int y = 0; y < n; ++y)
+        for (long y = 0; y < n; ++y)
         {
             if (map.at(x).at(y) == yizhong.front())
             {
@@ -177,9 +177,9 @@ int main()
     }
 
     // 打印结果
-    for (int i = 0; i < n; ++i)
+    for (long i = 0; i < n; ++i)
     {
-        for (int j = 0; j < n; ++j)
+        for (long j = 0; j < n; ++j)
         {
             if (flag.at(i).at(j))
             {

@@ -39,7 +39,7 @@ void removeFrontZero(string &str)
     }
 }
 
-int main()
+long main()
 {
     string in;
     cin >> in;

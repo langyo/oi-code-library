@@ -18,7 +18,7 @@
 
 using namespace std;
 
-int main()
+long main()
 {
     long long base, power, mod;
     cin >> base >> power >> mod;

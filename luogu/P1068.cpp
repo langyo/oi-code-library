@@ -22,15 +22,15 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int n, m;
+    long n, m;
     cin >> n >> m;
 
     vector<pair<int, int>> list;
-    for (int i = 0; i < n; ++i)
+    for (long i = 0; i < n; ++i)
     {
-        int k, s;
+        long k, s;
         cin >> k >> s;
         list.push_back(make_pair(k, s));
     }
@@ -44,11 +44,11 @@ int main()
              return lhs.second > rhs.second;
          });
 
-    int score_line = list.at(m - 1).second;
+    long score_line = list.at(m - 1).second;
     for (; list.at(m).second == score_line; ++m)
         ;
     cout << score_line << " " << m << endl;
-    for (int i = 0; i < m; ++i)
+    for (long i = 0; i < m; ++i)
     {
         cout << list.at(i).first << " " << list.at(i).second << endl;
     }

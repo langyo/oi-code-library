@@ -18,11 +18,11 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-  int beginh, beginm, endh, endm;
+  long beginh, beginm, endh, endm;
   cin >> beginh >> beginm >> endh >> endm;
-  int timeStack = (endh * 60 + endm) - (beginh * 60 + beginm);
+  long timeStack = (endh * 60 + endm) - (beginh * 60 + beginm);
   cout << timeStack / 60 << " " << timeStack % 60;
   return 0;
 }

@@ -19,15 +19,15 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int n;
+    long n;
     cin >> n; // 多项式次数
 
     stringstream out; // 输出文本流
-    for (int i = n; i > 1; --i)
+    for (long i = n; i > 1; --i)
     {
-        int a; // 第 i 次项的系数
+        long a; // 第 i 次项的系数
         cin >> a;
         if (a != 0)
         {
@@ -39,7 +39,7 @@ int main()
             out << "x^" << i;
         }
     }
-    int k;
+    long k;
     // 一次项处理
     cin >> k;
     if (k != 0)

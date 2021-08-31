@@ -21,23 +21,23 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int n;
+    long n;
     cin >> n;
 
     string greatest_name;
-    int greatest_money = 0, total_money = 0;
+    long greatest_money = 0, total_money = 0;
 
     for (auto i = 0; i < n; ++i)
     {
         string name;
-        int score, remark, paper_count;
+        long score, remark, paper_count;
         string header, western;
 
         cin >> name >> score >> remark >> header >> western >> paper_count;
 
-        int sum = 0;
+        long sum = 0;
 
         if (score > 80 && paper_count > 0)
             sum += 8000;

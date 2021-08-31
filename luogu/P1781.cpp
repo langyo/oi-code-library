@@ -22,13 +22,13 @@
 
 using namespace std;
 
-int main()
+long main()
 {
-    int n;
+    long n;
     cin >> n;
 
     vector<pair<string, int>> list;
-    for (int i = 1; i <= n; ++i)
+    for (long i = 1; i <= n; ++i)
     {
         string t;
         cin >> t;
