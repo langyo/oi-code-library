@@ -25,7 +25,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
     string expr;
     getline(cin, expr);

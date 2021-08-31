@@ -22,7 +22,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
     long n, m;
     cin >> n >> m;

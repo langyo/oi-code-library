@@ -21,7 +21,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
     long B;
     string in1, in2;

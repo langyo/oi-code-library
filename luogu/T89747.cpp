@@ -24,7 +24,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
     long n, m;
     scanf("%d%d", &n, &m);

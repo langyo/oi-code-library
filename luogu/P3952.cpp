@@ -121,7 +121,7 @@ long getO(const string &str)
         return atoi(str.substr(4, str.size() - 1).c_str());
 }
 
-long main()
+int main()
 {
     long n;
     cin >> n;

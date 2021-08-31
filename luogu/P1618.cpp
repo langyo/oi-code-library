@@ -38,7 +38,7 @@ long gcd(long a, long b)
     return a;
 }
 
-long main()
+int main()
 {
     long a, b, c;
     cin >> a >> b >> c;

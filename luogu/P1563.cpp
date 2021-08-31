@@ -32,7 +32,7 @@ long mergeNewIndex(long before, long steps, long max)
     return before;
 }
 
-long main()
+int main()
 {
     long n, m; // n 为小人个数，m 为指令数
     cin >> n >> m;

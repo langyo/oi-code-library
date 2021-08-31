@@ -20,7 +20,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
     short a[10]; // a[i] 表示第 i 个数已经用过了
     for (long i = 192, v = 0; i <= 327; ++i, v = 0)

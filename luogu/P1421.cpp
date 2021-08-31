@@ -18,7 +18,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
   long a, b;
   cin >> a >> b;

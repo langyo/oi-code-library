@@ -20,7 +20,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
     long p1, p2, p3;
     string s;

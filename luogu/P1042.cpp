@@ -22,7 +22,7 @@ using namespace std;
 
 // 该代码为未完善的代码，未正式测试，请勿使用
 
-long main()
+int main()
 {
     // 在此 bitset 中，被置位为 W，未被置位为 L
     bitset<25 * 2500 + 1> map;

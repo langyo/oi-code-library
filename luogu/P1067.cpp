@@ -19,7 +19,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
     long n;
     cin >> n; // 多项式次数

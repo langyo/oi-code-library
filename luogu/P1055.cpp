@@ -21,7 +21,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
   const regex ISBNReg("([0-9])\\-([0-9])([0-9])([0-9])\\-([0-9])([0-9])([0-9])([0-9])([0-9])\\-(.)"); // 用于匹配 ISBN 的正则表达式
   smatch match;                                                                                       // 匹配得到的结果存储变量

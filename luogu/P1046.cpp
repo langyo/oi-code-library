@@ -19,7 +19,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
   array<int, 10> arr; // 苹果高度数组
   for (long i = 0; i < 10; ++i)

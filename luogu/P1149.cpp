@@ -19,7 +19,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
 	constexpr array<int, 10> numCount = {6, 2, 5, 5, 4, 5, 6, 3, 7, 6};
 

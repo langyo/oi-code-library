@@ -20,7 +20,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
     const string yizhong("yizhong");
 

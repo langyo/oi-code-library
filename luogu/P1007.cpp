@@ -19,7 +19,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
     long l, n, p;
     long maxValue = 0, minValue = 0;

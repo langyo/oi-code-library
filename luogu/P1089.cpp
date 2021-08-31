@@ -19,7 +19,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
     vector<int> in;
     for (long i = 0; i < 12; ++i)

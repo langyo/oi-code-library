@@ -24,7 +24,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
     // 苹果数量，力气
     long n, s;

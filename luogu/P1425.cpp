@@ -18,7 +18,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
   long beginh, beginm, endh, endm;
   cin >> beginh >> beginm >> endh >> endm;

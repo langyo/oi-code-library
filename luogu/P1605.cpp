@@ -23,7 +23,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
     // n 为行，m 为列，t 为障碍总数
     long n, m, t;

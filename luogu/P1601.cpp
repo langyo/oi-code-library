@@ -21,7 +21,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
     string in1, in2;
     cin >> in1 >> in2;

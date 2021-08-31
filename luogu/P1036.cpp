@@ -24,7 +24,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
     long n, k;
     cin >> n >> k;

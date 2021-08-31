@@ -20,7 +20,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
     long m, n;
     cin >> m >> n; // m 为内存容量，n 为文章长度

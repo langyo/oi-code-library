@@ -35,7 +35,7 @@ struct args_t
     }
 };
 
-long main()
+int main()
 {
     vector<args_t> init_list;
     long long inA = 0, inB = 0, inC = 0;

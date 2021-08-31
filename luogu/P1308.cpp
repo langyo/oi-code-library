@@ -24,7 +24,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
     string word, document;
 

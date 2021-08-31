@@ -19,7 +19,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
   const double gamma = 0.5772156649;
   long k, n;

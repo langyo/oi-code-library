@@ -19,7 +19,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
     long n; // 地毯个数
     cin >> n;

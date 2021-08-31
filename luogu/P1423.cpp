@@ -18,7 +18,7 @@
 
 using namespace std;
 
-long main()
+int main()
 {
   double in, length = 2.0, ans = 0.0; // length 为当前步能游的距离，ans 为已游总距离
   long step = 0;                       // step 为计量的步数
