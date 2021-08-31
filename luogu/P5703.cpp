@@ -15,35 +15,13 @@
 */
 
 #include <iostream>
-#include <string>
 
 using namespace std;
 
 int main()
 {
-    long task_count;
-    cin >> task_count;
-
-    for (long t = 0; t < task_count; ++t)
-    {
-        string n;
-        long sum = 0, count = 0;
-
-        cin >> n;
-        for (auto i : n)
-        {
-            if (i == 'O')
-            {
-                ++count;
-                sum += count;
-            }
-            else
-            {
-                count = 0;
-            }
-        }
-        cout << sum << endl;
-    }
-
-    return 0;
+  long a, b;
+  cin >> a >> b;
+  cout << a * b;
+  return 0;
 }

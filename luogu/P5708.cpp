@@ -15,35 +15,22 @@
 */
 
 #include <iostream>
-#include <string>
+#include <cmath>
+#include <iomanip>
 
 using namespace std;
 
 int main()
 {
-    long task_count;
-    cin >> task_count;
+  double a, b, c;
+  cin >> a >> b >> c;
 
-    for (long t = 0; t < task_count; ++t)
-    {
-        string n;
-        long sum = 0, count = 0;
+  // 秦九韶公式
+  double p = (a + b + c) / 2;
+  double result = sqrt(p * (p - a) * (p - b) * (p - c));
 
-        cin >> n;
-        for (auto i : n)
-        {
-            if (i == 'O')
-            {
-                ++count;
-                sum += count;
-            }
-            else
-            {
-                count = 0;
-            }
-        }
-        cout << sum << endl;
-    }
-
-    return 0;
+  cout << setiosflags(ios::fixed)
+       << setprecision(1)
+       << result << endl;
+  return 0;
 }

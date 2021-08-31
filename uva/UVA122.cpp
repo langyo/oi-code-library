@@ -27,7 +27,7 @@ using namespace std;
 
 // 未完成
 
-long main()
+int main()
 {
     string inputing;
     regex reg("\\(([1-9]*[0-9])\\,([LR]*)\\)");
