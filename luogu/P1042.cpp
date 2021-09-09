@@ -16,64 +16,51 @@
 
 #include <iostream>
 #include <string>
-#include <bitset>
+#include <sstream>
 
 using namespace std;
 
-// 该代码为未完善的代码，未正式测试，请勿使用
-
 int main()
 {
-    // 在此 bitset 中，被置位为 W，未被置位为 L
-    bitset<25 * 2500 + 1> map;
-    long length = 0;
-
+    // 起初这里的代码使用了 std::bitset，但我意识到这其实是在做过早的无意义优化——原题给的数据范围完全不需要这种等级的空间优化
+    // 所以现在展示的代码是直接将读入的字符串存储进内存中的了
+    stringstream ss;
     string in;
+
     while (cin >> in)
     {
-        if (in.find('E') < 0)
+        if (in.find('E') != string::npos)
         {
-            in = in.substr(0, in.find('E'));
-            for (auto &i : in)
-            {
-                if (i == 'W')
-                    map.set(length++);
-            }
+            ss << in.substr(0, in.find('E'));
+            in = ss.str();
             break;
         }
         else
         {
-            for (auto &i : in)
-            {
-                if (i == 'W')
-                    map.set(length++);
-            }
+            ss << in;
         }
     }
 
     // 统计 11 分制下的结果
-    for (long count = 0; count < length % 11; ++count)
-    {
-        long W = 0, L = 0;
-        for (long i = 0; i < 11; ++i)
-        {
-            long count_mul = count * 11;
-            if (map.test(count_mul + i))
-                ++W;
-            else
-                ++L;
-        }
-        cout << W << ':' << L << endl;
-    }
-    ([&]()
+    ([&]
      {
          long W = 0, L = 0;
-         for (long i = length % 11 * 11; i < length; ++i)
+         for (auto &ch : ss.str())
          {
-             if (map.test(i))
-                 ++W;
+             if (ch == 'W')
+             {
+                 W += 1;
+             }
              else
-                 ++L;
+             {
+                 L += 1;
+             }
+             if ((W >= 11 || L >= 11) && (W - L >= 2 || L - W >= 2))
+             {
+                 cout << W << ':' << L << endl;
+                 W = 0;
+                 L = 0;
+             }
          }
          cout << W << ':' << L << endl;
      })();
@@ -81,28 +68,25 @@ int main()
     cout << endl;
 
     // 统计 21 分制下的结果
-    for (long count = 0; count < length % 21; ++count)
-    {
-        long W = 0, L = 0;
-        for (long i = 0; i < 21; ++i)
-        {
-            long count_mul = count * 21;
-            if (map.test(count_mul + i))
-                ++W;
-            else
-                ++L;
-        }
-        cout << W << ':' << L << endl;
-    }
-    ([&]()
+    ([&]
      {
          long W = 0, L = 0;
-         for (long i = length % 21 * 21; i < length; ++i)
+         for (auto &ch : ss.str())
          {
-             if (map.test(i))
-                 ++W;
+             if (ch == 'W')
+             {
+                 W += 1;
+             }
              else
-                 ++L;
+             {
+                 L += 1;
+             }
+             if ((W >= 21 || L >= 21) && (W - L >= 2 || L - W >= 2))
+             {
+                 cout << W << ':' << L << endl;
+                 W = 0;
+                 L = 0;
+             }
          }
          cout << W << ':' << L << endl;
      })();
