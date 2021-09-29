@@ -24,22 +24,22 @@ int main()
 {
   long n, m;
   cin >> n >> m;
-  
+
   vector<long> list;
 
   for(long i = 0; i < m; ++i)
   {
-	  long in;
-	  cin >> in;
-	  list.push_back(in);
+    long in;
+    cin >> in;
+    list.push_back(in);
   }
 
   sort(list.begin(), list.end());
 
   for(auto &i: list)
   {
-	cout << i << " ";
+    cout << i << " ";
   }
 
   return 0;
-}	
+}
